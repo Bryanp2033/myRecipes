@@ -5,17 +5,20 @@
  		<div class = "col-md-2">
  			<section class="chef_info center">
  				<%= gravatar_for recipe.chef, size: 100 %>
- 				<h3>Chef name: <%= recipe.chef.name %></h3>
+ 				<h5>Chef name: <%= recipe.chef.name %></h5>
  			</section>
  	</div>
 
- 		<div class="col-lg-8 well">
- 			<p><%= link_to recipe.name, recipe_path(recipe) %></p>
+ 		<div class="col-md-6 well">
+ 			<h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
  			<p><%= recipe.summary %></p>
  				<p>
  					<span class="quiet"><small> <%= time_ago_in_words(recipe.created_at) %></small></span>
  				</p>
+ 			<div class='col-md-4'>
+ 				<%= image_tag(recipe.picure.url, size: "250x150", class: "gravatar") if recipe.picture? %>
  			</div>
- 		</div>
+ 	</div>
+ </div>
  		<hr/>
  <% end %>
