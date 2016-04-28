@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
-  root 'pages#home'
+  root 'welcome#home'
 
   get '/home', to: 'welcome#home'
 
-  resources :recipes
+  resources :recipes do
+  	member do
+  		post 'like'
+  	end
+  end
 end
