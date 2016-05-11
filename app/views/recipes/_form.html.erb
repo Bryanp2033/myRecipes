@@ -16,7 +16,7 @@
 
 		<strong>Styles:</strong>
 		<%= f.collection_check_boxes :style_ids, Style.all, :id, :name do |cb| %>
-			<%= cb.label(class: "checkbox-inline") {
+			<%= cb.label(class: "checkbox-inline input_checkbox") {
 				cb.check_box(
 					class: "checkbox") + cb.text
 			} %>
@@ -24,10 +24,10 @@
 		<% end %>
 		<br></br>
 		<strong>Ingredients:</strong>
-		<%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name do |cb| %>
-		<%= cb.label(class: "checkbox_inline") {
-			cb.check_box(
-				class: "check_box") + cb.text
+		<%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name do |cbi| %>
+		<%= cbi.label(class: "checkbox_inline input_checkbox") {
+			cbi.check_box(
+				class: "check_box") + cbi.text
 		} %>
 		<% end %>
 		<br></br>
