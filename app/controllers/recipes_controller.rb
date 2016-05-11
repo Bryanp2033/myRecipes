@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
 	before_action :set_recipe_find, only: [:edit, :update, :show, :like]
-	before_action :require_same_user_to_recipes, expect: [:show, :index]
+	before_action :require_user_like, only: [:like]
+	before_action :require_same_user_to_recipes, expect: [:show, :index, :like]
 	before_action :require_same_user_to_recipes, only: [:edit, :update]
 
 
@@ -59,7 +60,7 @@ class RecipesController < ApplicationController
 		private
 
 			def recipe_params
-				params.require(:recipe).permit(:name, :summary, :description, :picure)
+				params.require(:recipe).permit(:name, :summary, :description, :picure, style_ids: [], ingredient_ids: [])
 			end
 
 			def require_same_user_to_recipes
@@ -72,4 +73,11 @@ class RecipesController < ApplicationController
 			def set_recipe_find
 				@recipe = Recipe.find(params[:id])	
 			end
+
+			def require_user_like
+    			if !logged_in?
+      			flash[:danger] = "You must be logged in"
+     			redirect_to :back
+    		end
+  end
 end

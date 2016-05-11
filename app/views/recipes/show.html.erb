@@ -1,5 +1,6 @@
 <%= render 'shared/page_title', title: @recipe.name %>
 
+
 <div class="row">
 	<div class="col-md-4 pull-right center">
 		<%= link_to gravatar_for(@recipe.chef, size: 200), chef_path(@recipe.chef) %>
@@ -16,6 +17,8 @@
 			<%= image_tag(@recipe.picture.url, class: "gravatar") if @recipe.picture? %>
 		</div>
 		<div class="well">
+			<p> Style: <%= render @recipe.styles %></p>
+			<p>Ingredients: <%= render @recipe.ingredients %></p>
 			<p>
 				<strong>Steps:</strong>
 			</p>
