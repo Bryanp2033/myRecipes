@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
 
 	def create
 
-		@recipe = Recipe.find(params[:id])
+		@recipe = Recipe.find(params[:recipe_id])
 		@review = Review.new(reviews_params)
 		@review.chef = current_user
 		@new_review = Review.new

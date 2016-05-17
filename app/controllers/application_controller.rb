@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?, :require_user
 
   def current_user
-  	@current_user ||= Chef.find(session[:chef_id]) if session[:chef_id]
+  	@current_user ||= Chef.find(session[:chef]) if session[:chef]
   end
 
   def logged_in?

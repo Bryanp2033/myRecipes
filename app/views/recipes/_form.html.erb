@@ -18,7 +18,7 @@
 		<%= f.collection_check_boxes :style_ids, Style.all, :id, :name do |cb| %>
 			<%= cb.label(class: "checkbox-inline input_checkbox") {
 				cb.check_box(
-					class: "checkbox") + cb.text
+					class: "check_box") + cb.text
 			} %>
 
 		<% end %>
