@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/home', to: 'welcome#home'
 
   resources :recipes do
+    resources :reviews, only: [:create]
   	member do
   		post 'like'
   	end

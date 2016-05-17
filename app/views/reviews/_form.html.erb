@@ -1,0 +1,7 @@
+<h4> Create a Review </h4>
+<%= form_for [recipe, review] do |f| %>
+	<%= f.label :body %>
+	<%= f.text_field :body %>
+	<%= f.submit %>
+	<% end %>
+	

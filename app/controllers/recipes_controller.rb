@@ -41,8 +41,6 @@ class RecipesController < ApplicationController
 		end
 	end
 
-
-
 	def new
 		@recipe = Recipe.new
 	end
