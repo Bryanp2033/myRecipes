@@ -27,7 +27,7 @@ class ChefsController < ApplicationController
 	def update
 		if @chefs.update(chefs_params)
 			flash[:success] = "Your changes to the account was saved successfully"
-			redirect_to chef_path(@chef)
+			redirect_to chef_path(@chefs)
 		else
 			render 'edit'
 		end
@@ -45,7 +45,7 @@ class ChefsController < ApplicationController
 	end
 
 	def require_same_user
-		if current_user != @chef
+		if current_user = @chef
 			flash[:danger] = "You can only edit your own profile"
 			redirect_to root_path
 		end
