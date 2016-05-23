@@ -11,7 +11,7 @@
 	<div class="col-md-8">
 
 		<% if logged_in? and current_user.admin? %>
-			<%= link_to "[Delete Recipe]", @recipe , method: :delete, data: {confirm: "Are You Sure?"} %>
+		<%= link_to "[Delete Recipe]", @recipe , method: :delete, data: {confirm: "Are You Sure?"} %>
 		<% end %>
 
 		<% if logged_in? and (@recipe.chef == current_user || current_user.admin?) %>
@@ -46,10 +46,25 @@
 		</div>
 	</div>
 </div>
+<div class = "pullright">
+	<span class="quiet"><small> created: <%= time_ago_in_words(@recipe.created_at)  %> ago,</small></span>
+	<span class="quiet"><small> updated: <%= time_ago_in_words(@recipe.updated_at)%> ago </small></span>
+</div>
 <div class ="row">
-	<h2> Reviews </h2>
-	 	<%= render 'reviews/form', recipe: @recipe, review: @review %>
-	 </div>
+	<br>
+	<h4 class= "review-heading"> Reviews </h4>
+	<hr>
+	<div class = 'col-md-12'>
+		<div class='js-reviews'>
+			<%= render 'reviews/review'%>
+		</div>
+	</div>
+</div>
 
 
-<h5><%= link_to 'Return to Return Listing', :back, class: "btn btn-small btn-success" %></h5>
+<div class='new-review'>
+	<%= render 'reviews/form', recipe: @recipe, review: @review %>
+</div>
+
+
+<h5><%= link_to 'Return to Return Listing', recipes_path || :back, class: "btn btn-small btn-success" %></h5>

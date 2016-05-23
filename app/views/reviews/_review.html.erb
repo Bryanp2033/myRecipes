@@ -1,0 +1,12 @@
+<div class = "row review-row">
+	<div class = "media-left">
+		<%= link_to gravatar_for(@recipe.chef, size: 35), chef_path(@recipe.chef) %>
+		<small><%= @recipe.chef.name %></small>
+	</div>
+	<div class ="media-body review-words">
+		<p> <%= @review.body %> </p>
+	</div>
+</div>
+<br>
+<hr>
+

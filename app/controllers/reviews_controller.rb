@@ -7,15 +7,15 @@ class ReviewsController < ApplicationController
 		@review.chef = current_user
 		@new_review = Review.new
 
-		if @review.save 
-			flash[:success] = "Your review was saved"
-			redirect_to recipes_path
-		else
-			flash[:danger] = "Your review wasn't saved, Please try again"
-			redirect_to :back
+	if @review.save
+		respond_to do |format|
+				format.html
+				format.js
+			end
+		end
 
 	end
-end
+
 
 def new
 	@review = Review.new
