@@ -61,10 +61,13 @@
 	</div>
 </div>
 
-
+<% if logged_in? %>
 <div class='new-review'>
 	<%= render 'reviews/form', recipe: @recipe, review: @review %>
 </div>
+<% else %>
+	<p> <%= link_to "Log in", login_path %> or <%= link_to "create an account", register_path %> to create an review! </p>
+<% end %>
 
 
 <h5><%= link_to 'Return to Return Listing', recipes_path || :back, class: "btn btn-small btn-success" %></h5>

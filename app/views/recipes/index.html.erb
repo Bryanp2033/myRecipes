@@ -9,6 +9,11 @@
 	</li>
 </ul>
 
+<br>
+<% if !logged_in? %>
+	<p> <%= link_to "Log in", login_path %> or <%= link_to "create an account", register_path %> to create an recipe! </p>
+<% end %>
+
 <%= will_paginate %>
 
 <br><br>
