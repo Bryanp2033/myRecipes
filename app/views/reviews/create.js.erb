@@ -1,3 +1,4 @@
+// javascript.embedded ruby code to create the ajax feature, ifs valid it appends the entry.
 <% if @review.valid? %>
 	 $('.js-reviews').append("<%= escape_javascript(render(@review)) %>");
 	 $('.new-review').html("<%= escape_javascript(render partial: 'reviews/form', locals: { recipe: @recipe, review: @review }) %>");

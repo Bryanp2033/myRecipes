@@ -1,9 +1,10 @@
 <%= render 'shared/page_title', title: "Recipes that have : " + @ingredient.name  %>
 
 
-
+<!--pagination feature-->
 <%= will_paginate @recipes %>
 
+<!--shows the recipes assoicated with the current ingredient-->
 <% @ingredient.recipes.each do |recipe| %>
 <div class = "row">
 	<div class = "col-md-2">

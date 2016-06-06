@@ -1,6 +1,7 @@
 class StylesController < ApplicationController
 	before_action :require_user, expect: [:show]
 
+	#basic crud action, refer to chefs_controller for further details
 	def new
 		@style = Style.new
 	end

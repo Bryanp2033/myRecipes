@@ -2,17 +2,19 @@
 	<h1 class="center">Welcome to MyRecipes App</h1>
 
 	
-
+	<!-- if logged in, this displays to the current_user -->
 	<% if logged_in? %>
 	<div class="nav_item">
 		<%= link_to "Browse Recipes!", recipes_path, class: "btn btn-success" %>
 	</div>
 	<% else %>
 	<div class="nav_item_sign_up">
-	<%= link_to "Sign up now!", register_path, class: "btn btn-lg btn-success" %>
+		<%= link_to "Sign up now!", register_path, class: "btn btn-lg btn-success" %>
 	</div>
 	<% end %>
 </div>
+
+<!-- if not logged in, this is displayed to the user-->
 <div class="row">
 	<% if !logged_in? %>
 	<div class="col-lg-4">
@@ -29,12 +31,5 @@
 		</h3>
 		<h2 class="left"> Add/update your recipes/create review/like-dislike and much more!</h2>
 		<p><%= link_to "Sign into Your Account", login_path, class: "btn btn-warning btn-small"%></p>
-	</div>
-	<div class="col-lg-4">
-		<h3 class="midrow">
-			View Recipes as Guest User
-		</h3>
-		<h2 class="left"> Browse and view recipes as a guest and Sign up Later</h2>
-		<p><%= link_to "Browse Recipe Listings", recipes_path, class: "btn btn-warning btn-small"%></p>
 	</div>
 </div>

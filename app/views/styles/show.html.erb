@@ -1,7 +1,7 @@
 <%= render 'shared/page_title', title: "Recipes for : " + @style.name + " food" %>
 
 
-
+<!-- displays the associated recipes to the styles -->
 <%= will_paginate @recipes %>
 
 <% @style.recipes.each do |recipe| %>

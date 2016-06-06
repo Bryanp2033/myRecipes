@@ -1,9 +1,11 @@
 
 <%= render 'shared/errors', obj: @recipe %>
 
-
+<!--the form for creating a recipe to the db-->
 <div class="row">
 	<div class="well col-md-8 col-md-offset-2">
+
+		#multipart if used for Avatar upload
 		<%= form_for(@recipe, html: { multipart: true}) do |f| %>
 		<%= f.label :name %>
 		<%= f.text_field :name %><br/>
@@ -15,7 +17,7 @@
 		<%= f.text_area :description, rows: 10 %><br/>
 
 
-
+		<!--checkboxes to associate the styles and ingredient to the recipe being created-->
 		<strong>Styles: </strong>
 		<%= f.collection_check_boxes :style_ids, Style.all, :id, :name do |cb| %>
 		<% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
@@ -28,7 +30,7 @@
 		<% end %>
 		<br><br>
 
-
+		<!--image uploading(work in progress)-->
 		<span class='picture'>
 			<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
 
@@ -37,6 +39,7 @@
 		</div>
 	</div>
 
+	<!--javascript code to alert the user to provide a smaller image-->
 	<script type="text/javascript">
 	$('#recipe_picture').bind('change', function() {
 		size_in_megabytes = this.files[0].size/1024/1024;

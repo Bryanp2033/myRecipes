@@ -1,6 +1,6 @@
 <%= render 'shared/page_title', title: @recipe.name %>
 
-
+<!--shows the requested recipe to the user-->
 <div class="row">
 	<div class="col-md-4 pull-right center">
 		<%= link_to gravatar_for(@recipe.chef, size: 200), chef_path(@recipe.chef) %>
@@ -50,6 +50,8 @@
 	<span class="quiet"><small> created: <%= time_ago_in_words(@recipe.created_at)  %> ago,</small></span>
 	<span class="quiet"><small> updated: <%= time_ago_in_words(@recipe.updated_at)%> ago </small></span>
 </div>
+
+<!--displays the review(work in progress)-->
 <div class ="row">
 	<br>
 	<h4 class= "review-heading"> Reviews </h4>
@@ -61,12 +63,13 @@
 	</div>
 </div>
 
+<!--creates a new review-->
 <% if logged_in? %>
 <div class='new-review'>
 	<%= render 'reviews/form', recipe: @recipe, review: @review %>
 </div>
 <% else %>
-	<p> <%= link_to "Log in", login_path %> or <%= link_to "create an account", register_path %> to create an review! </p>
+<p> <%= link_to "Log in", login_path %> or <%= link_to "create an account", register_path %> to create an review! </p>
 <% end %>
 
 

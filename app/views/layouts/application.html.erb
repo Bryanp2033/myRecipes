@@ -1,16 +1,19 @@
+<!--to declare what html version the project is using-->
 <!DOCTYPE html>
+
 <html>
 <head>
-  <title>MyRecipes</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<!--title displayed on the tabs-->
+	<title>MyRecipes</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 	<%= render 'layouts/navigation' %>
 	<div class="container">
 		<%= render 'layouts/messages' %>
-<%= yield %>
-	<%= render 'layouts/footer' %>
-</body>
-</html>
+		<%= yield %>
+		<%= render 'layouts/footer' %>
+	</body>
+	</html>

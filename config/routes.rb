@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   resources :recipes do
     resources :reviews, only: [:create]
-  	member do
-  		post 'like'
-  	end
+    member do
+      post 'like'
+    end
   end
 
 

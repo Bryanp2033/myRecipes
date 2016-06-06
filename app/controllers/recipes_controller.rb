@@ -5,13 +5,13 @@ class RecipesController < ApplicationController
 	before_action :require_same_user_to_recipes, expect: [:show, :index, :like]
 	before_action :require_same_user_to_recipes, only: [:edit, :update]
 
-
+	#basic crud commands, refer to chefs_controller for further details
 	def index
 		@recipes = Recipe.paginate(page: params[:page], per_page: 4)
 	end
 
 	def show
-		@review = Review.new
+		@review = Review.new(params[:body])
 	end
 
 	def create
@@ -45,6 +45,8 @@ class RecipesController < ApplicationController
 		@recipe = Recipe.new
 	end
 
+
+	# a like feature mainly used the recipes#index and recipes#show
 	def like
 		like = Like.create(like: params[:like], chef: current_user, recipe: @recipe)
 		if like.valid?
@@ -62,12 +64,13 @@ class RecipesController < ApplicationController
 		redirect_to recipes_path
 	end
 
-		private
+	private
 
-			def recipe_params
-				params.require(:recipe).permit(:name, :summary, :description, :picure, style_ids: [], ingredient_ids: [])
-			end
+	def recipe_params
+		params.require(:recipe).permit(:name, :summary, :description, :picure, style_ids: [], ingredient_ids: [])
+	end
 
+			#this error will flash if the current user does not equal the owner of the current recipe and if they're not an admin.
 			def require_same_user_to_recipes
 				if current_user != @recipe.chef and !current_user.admin?
 					flash[:danger] = "You can only edit/update your own recipes"
@@ -75,18 +78,21 @@ class RecipesController < ApplicationController
 				end
 			end
 
+			#before action method to keep the code DRY
 			def set_recipe_find
 				@recipe = Recipe.find(params[:id])	
 			end
 
+			#redirects to recipes#index if the current user isn't an admin
 			def admin_to_recipes
 				redirect_to recipes_path unless current_user.admin?
 			end
 
+			#if not loggin in, then this error will flash
 			def require_user_like
-    			if !logged_in?
-      			flash[:danger] = "You must be logged in"
-     			redirect_to :back
-    		end
-  end
-end
+				if !logged_in?
+					flash[:danger] = "You must be logged in"
+					redirect_to :back
+				end
+			end
+		end
