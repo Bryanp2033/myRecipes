@@ -16,20 +16,23 @@
 
 <!-- if not logged in, this is displayed to the user-->
 <div class="row">
+
+
 	<% if !logged_in? %>
-	<div class="col-lg-4">
+	<div class="col-lg-4" id="front_page_row">
 		<h3 class="midrow">
 			View Recipes as Guest User
 		</h3>
-		<h2 class="left"> Browse and view recipes as a guest and Sign up Later</h2>
+		<h2 class="left"> Browse and view recipes as a guest <br> and Sign up Later</h2>
 		<p><%= link_to "Browse Recipe Listings", recipes_path, class: "btn btn-warning btn-small"%></p>
 	</div>
 	<% end %>
-	<div class="col-lg-4">
+
+	<div class="col-lg-4" id="front_page_row">
 		<h3 class="midrow">
 			Sign into your account
 		</h3>
-		<h2 class="left"> Add/update your recipes/create review/like-dislike and much more!</h2>
+		<h2 class="left"> Add/update your recipes/create review/<br>like-dislike and much more!</h2>
 		<p><%= link_to "Sign into Your Account", login_path, class: "btn btn-warning btn-small"%></p>
 	</div>
 </div>
