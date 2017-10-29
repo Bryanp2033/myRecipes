@@ -3,7 +3,7 @@
 
 This project idea was not original as before me there were already similar apps out there either for displaying use or deploying it to the app store. For me this was a just a passion project as a beginner chef lately, I wanted to provide a application for users to create and share recipes all in while other users can review it.
 
-The application allows users to create a recipe with/without a picture, post,reviews without a page reload(ajax request), like the recipes, check out their own and other users’ profiles showcasing their recipes, and the app also displays the list of topics and posts with pagination.
+The application allows users to create a recipe, post,reviews without a page reload, like the recipes, check out their own and other users’ profiles showcasing their recipes, and the app also displays the list of topics and posts with pagination.
 
 Lastly, users can create new ingredients and recipes styles to effectively distinguish what type the recipe is and what ingredient it as as that was priority for me as a safety concern(allergy reasons, etc.) for the users.
 
@@ -86,7 +86,7 @@ A user can create or edit a recipe. Also a new recipe has to fit the requirement
 ![Editing a recipe](/gifs/edit-recipe.gif "Editing a recipe")
 
 * Deleting a recipe(if it belongs to the user)
-![Deleting a recipe](/gifs/delete-recipe..gif "Deleting a recipe")
+![Deleting a recipe](/gifs/delete-recipe.gif "Deleting a recipe")
 
 # Reviews
 
