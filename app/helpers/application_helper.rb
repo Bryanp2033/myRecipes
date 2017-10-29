@@ -1,4 +1,6 @@
 module ApplicationHelper
+
+	# for images
 	def gravatar_for(chef, options = {size: 80})
 		gravatar_id = Digest::MD5::hexdigest(chef.email.downcase)
 		size = options[:size]

@@ -27,9 +27,17 @@ body {
 	padding-top: 80px;
 }
 
+
+
 .nav_item {
 	margin-left: 25px;
 	float: left;
+	margin-top: 20px;
+}
+
+.nav_item_sign_up {
+	margin-left: 25px;
+	
 	margin-top: 20px;
 }
 
@@ -111,4 +119,22 @@ span.picture {
 
 .show_recipe {
 	margin: 10px 10px 10px 10px;
+}
+
+.review-heading {
+	margin-left: 15px;
+}
+
+.review-row {
+	margin-left: 2px;
+}
+
+.review-words{
+	font-size: 35px;
+	margin: 25 25 25 25px;
+	margin-right: 50px;
+}
+
+#front_page_row {
+	margin-left: 120px;
 }

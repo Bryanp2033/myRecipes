@@ -1,12 +1,13 @@
 class LoginsController < ApplicationController
-	def new
 
+	def new
 	end
 
+	#verfies if the chef credentials are correct, and if so creates the session for the chef
 	def create
 		chef = Chef.find_by(email: params[:email])
 		if chef && chef.authenticate(params[:password])
-			session[:chef_id] = chef.id
+			session[:chef] = chef.id
 			flash[:success] = "You login successfully"
 			redirect_to recipes_path
 		else
@@ -14,8 +15,9 @@ class LoginsController < ApplicationController
 		end
 	end
 
+	#destroy the current chef session
 	def destroy
-		session[:chef_id] = nil
+		session[:chef] = nil
 		flash[:success] = "You have logged out"
 		redirect_to root_path
 	end

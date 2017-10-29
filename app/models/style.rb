@@ -1,4 +1,9 @@
 class Style < ActiveRecord::Base
-	has_many :recipes, through: :recipe_styles
+
+	#model relationships and valiadations
 	validates :name, presence: true, length: {minimum: 2, maximum: 25 }
-end
+	has_many :recipe_style
+	has_many :recipes, through: :recipe_style
+end 
+
+

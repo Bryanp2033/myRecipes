@@ -1,6 +1,7 @@
 class IngredientsController < ApplicationController
 	before_action :require_user, expect: [:show]
 
+	#basic crud commands, refer to chefs_controller for further details
 	def new
 		@ingredient = Ingredient.new
 	end
@@ -17,7 +18,7 @@ class IngredientsController < ApplicationController
 
 	def show
 		@ingredient = Ingredient.find(params[:id])
-		@recipes = @ingredient.recipe.paginate(:page => params[:page], per_page => 4)
+		@recipes = @ingredient.recipes.paginate(:page => params[:page], per_page: 4)
 	end
 
 

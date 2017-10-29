@@ -1,5 +1,6 @@
 <%= render 'shared/page_title', title: "All Recipes" %>
 
+<!--tabs section to navigate between recipes#index and chefs#index-->
 <ul class="nav nav-tabs">
 	<li class="active">
 		<%= link_to "Recipes", recipes_path %>
@@ -9,8 +10,17 @@
 	</li>
 </ul>
 
+<br>
+
+<!--if not logged in displays this message-->
+<% if !logged_in? %>
+<p> <%= link_to "Log in", login_path %> or <%= link_to "create an account", register_path %> to create a recipe! </p>
+<% end %>
+
 <%= will_paginate %>
 
+<!--shows every recipe in the db along with sorting the collection with pagination-->
+<br><br>
 <% @recipes.each do |recipe| %>
 <div class = "row">
 	<div class = "col-md-2">
@@ -24,23 +34,15 @@
 		<h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
 		<p><%= recipe.summary %></p>
 		<% if recipe.styles.any? %>
-			<p> Style: <%= render recipe.styles %></p>
+		<p> Style: <%= render recipe.styles %></p>
 		<% end %>
 		<% if recipe.ingredients.any? %>
-			<p>Ingredients: <%= render recipe.ingredients %></p>
+		<p>Ingredients: <%= render recipe.ingredients %></p>
 		<% end %>
 		<p>
 			<span class="quiet"><small> created: <%= time_ago_in_words(recipe.created_at)  %> ago,</small></span>
 			<span class="quiet"><small> updated: <%= time_ago_in_words(recipe.updated_at)%> ago </small></span>
 		</p>
-		<div class="pull-right">
-			<%= link_to like_recipe_path(recipe, like: true), method: :post do %>
-			<i class="glyphicon glyphicon-thumbs-up"></i> &nbsp <%= recipe.thumbs_up_total %>
-			<% end %> &nbsp&nbsp&nbsp&nbsp
-			<%= link_to like_recipe_path(recipe, like: false), method: :post do %>
-			<i class="glyphicon glyphicon-thumbs-down"></i> &nbsp <%= recipe.thumbs_down_total %>
-			<% end %>
-		</div>
 		<div class='col-md-4'>
 			<%= image_tag(recipe.picure.url, size: "250x150", class: "gravatar") if recipe.picture? %>
 		</div>
