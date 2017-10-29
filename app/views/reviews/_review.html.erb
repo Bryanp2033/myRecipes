@@ -1,8 +1,8 @@
 <!--the a review partial to show every review entry-->
 <div class = "row review-row">
 	<div class = "media-left">
-		<%= link_to gravatar_for(@recipe.chef, size: 35), chef_path(@recipe.chef) %>
-		<small><%= @recipe.chef.name %></small>
+		<%= link_to gravatar_for(current_user, size: 35), chef_path(current_user) %>
+		<small><%= current_user.name %></small>
 	</div>
 	<div class ="media-body review-words">
 		<h4> <%= @review.body %> </h4>

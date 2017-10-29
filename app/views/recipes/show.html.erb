@@ -10,8 +10,8 @@
 	</div>
 	<div class="col-md-8">
 
-		<% if logged_in? and current_user.admin? %>
-		<%= link_to "[Delete Recipe]", @recipe , method: :delete, data: {confirm: "Are You Sure?"} %>
+		<% if logged_in? and (@recipe.chef == current_user || current_user.admin?) %>
+		<%= link_to "Delete Recipe", @recipe , method: :delete, data: {confirm: "Are You Sure?"}, class: "btn btn-success pull right" %>
 		<% end %>
 
 		<% if logged_in? and (@recipe.chef == current_user || current_user.admin?) %>
@@ -21,7 +21,7 @@
 
 		<h2><%= @recipe.summary %></h2>
 		<div class="show_recipe">
-			<%= image_tag(@recipe.picture.url, class: "gravatar") if @recipe.picture? %>
+			<%= image_tag(@recipe.picture, class: "gravatar") %>
 		</div>
 		<div class="well">
 			<% if @recipe.styles.any? %>
@@ -35,14 +35,6 @@
 				<strong>Steps:</strong>
 			</p>
 			<%= simple_format(@recipe.description) %>
-			<div class="pull-right">
-				<%= link_to like_recipe_path(@recipe, like: true), method: :post do %>
-				<i class="glyphicon glyphicon-thumbs-up"></i> &nbsp <%= @recipe.thumbs_up_total %>
-				<% end %> &nbsp&nbsp&nbsp&nbsp
-				<%= link_to like_recipe_path(@recipe, like: false), method: :post do %>
-				<i class="glyphicon glyphicon-thumbs-down"></i> &nbsp <%= @recipe.thumbs_down_total %>
-				<% end %>
-			</div>
 		</div>
 	</div>
 </div>
