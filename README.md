@@ -1,11 +1,10 @@
 
 # Concept
-
-This project idea was not original as before me there were already similar apps out there either for displaying use or deploying it to the app store. For me this was a just a passion project as a beginner chef lately, I wanted to provide a application for users to create and share recipes all in while other users can review it.
-
 The application allows users to create a recipe, post,reviews without a page reload, like the recipes, check out their own and other users’ profiles showcasing their recipes, and the app also displays the list of topics and posts with pagination.
 
 Lastly, users can create new ingredients and recipes styles to effectively distinguish what type the recipe is and what ingredient it as as that was priority for me as a safety concern(allergy reasons, etc.) for the users.
+
+Project Link: https://myreciperails-bryanp.herokuapp.com/
 
 # Sign Up
 
